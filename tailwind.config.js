@@ -8,6 +8,7 @@ export default {
       celadon: '#aedcc0ff',
       flame: '#cf5c36ff',
       'persian-orange': '#d38b5dff',
+      white: '#FFFFFF',
     },
     extend: {
       fontFamily: {

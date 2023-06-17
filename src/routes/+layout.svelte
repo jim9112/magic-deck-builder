@@ -3,4 +3,6 @@
   import Header from "../components/Header.svelte";
 </script>
 <Header />
-<slot />
+<main class="bg-hookers-green min-h-screen text-white">
+    <slot />
+</main>
