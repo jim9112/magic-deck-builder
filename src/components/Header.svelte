@@ -6,7 +6,7 @@
 <header class="bg-onyx text-persian-orange">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a href="/" class="-m-1.5 p-1.5">
         <span class="">The Deck Assistant</span>
       </a>
     </div>
@@ -19,13 +19,12 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+      <a href="/card-finder" class="text-sm font-semibold leading-6 text-gray-900">Card Finder</a>
+      <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About</a>
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+    <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
-    </div>
+    </div> -->
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
   <div class="{!mobileMenuOpen && 'hidden'} lg:hidden" role="dialog" aria-modal="true">
@@ -46,13 +45,12 @@
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+            <a href="/card-finder" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Card Finder</a>
+            <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About</a>
           </div>
-          <div class="py-6">
+          <!-- <div class="py-6">
             <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

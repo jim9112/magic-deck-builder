@@ -5,7 +5,7 @@ export default {
     colors: {
       onyx: '#343e3dff',
       'hookers-green': '#607466ff',
-      celadon: '#aedcc0ff',
+      vanilla: '#f1e8b8ff',
       flame: '#cf5c36ff',
       'persian-orange': '#d38b5dff',
       white: '#FFFFFF',
