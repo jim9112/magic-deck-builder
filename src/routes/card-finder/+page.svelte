@@ -3,15 +3,17 @@
     export let data;
     let {getCards} = data;
     type Cards = {
-        card?: {
-            name: String,
-            imageUrl: string,
-        }
+        cards?: { 
+            name: string,
+            imageUrl: string
+        }[]
     }
-    let cards: Cards = {}
-    const loadCards = async () => {
-        const theCards = await getCards();
-        cards = {...theCards}
+    let cardName: string;
+    let cardIndex: number = 0;
+    let cards: Cards["cards"] = [];
+    const loadCards = async (userInput = 'avacyn'):Promise<void> => {
+        const theCards = await getCards(userInput);
+        cards = theCards.cards
         console.log(cards);
     } 
     loadCards();
@@ -19,13 +21,14 @@
 
 
 <h1>Card Finder</h1>
-
-
-<div class="conatainer">
+<input class="text-onyx" type="text" bind:value={cardName}>
+<button on:click={() => loadCards(cardName)}>Search</button>
+<div class="container">
+    <button on:click={() => cardIndex = cardIndex+ 1}>Next</button>
     <div class="mx-auto max-w-max p-8 bg-vanilla text-hookers-green">
-        {#if cards.card}
-        <img src={cards.card.imageUrl} alt="">
-        <h3>{cards.card.name && cards.card.name}</h3>
+        {#if cards && cards.length > 0}
+        <img src={cards[cardIndex].imageUrl} alt="">
+        <h3>{cards[cardIndex].name}</h3>
         {:else}
         <span>Loading....</span>
         {/if}
