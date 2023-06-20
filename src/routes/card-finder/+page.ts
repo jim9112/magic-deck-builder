@@ -1,4 +1,3 @@
-/** @type {import('./$types').PageLoad} */
 export async function load({ fetch, params }) {
   const getCards = async (cardName = 'avacyn') => {
     const res = await fetch(
