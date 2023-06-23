@@ -1,3 +1,7 @@
+import { firebaseApp } from '$lib/firebase';
+
+
+
 export async function load({ fetch, params }) {
   const getCards = async (cardName = 'avacyn') => {
     const res = await fetch(
@@ -6,6 +10,5 @@ export async function load({ fetch, params }) {
     const item = await res.json();
     return item;
   };
-
   return { getCards };
 }
