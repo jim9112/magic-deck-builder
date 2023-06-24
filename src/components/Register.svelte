@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="flex flex-col">
-                <label for="confimEmail">Confirm Email Address</label>
+                <label for="confirmEmail">Confirm Email Address</label>
                 <input type="email" name="confirmEmail" id="confirmEmail">
             </div>
         </div>
