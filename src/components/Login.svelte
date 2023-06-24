@@ -1,9 +1,21 @@
 <script lang="ts">
-  import CardLarge from "./global/CardLarge.svelte";
+    import {authUser} from '$lib/authStore';
+    import {signInWithEmailAndPassword} from'firebase/auth';
+    import {firebaseAuth} from '$lib/firebase';
+    import CardLarge from "./global/CardLarge.svelte";
     let email: string;
     let password: string;
     const login = () => {
-        console.log(email, password)
+        signInWithEmailAndPassword(firebaseAuth, email, password).then(userCredential => {
+            $authUser = {
+                uid: userCredential.user.uid,
+            }
+        }).catch((error)=> {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage)
+        });
+        
     }
 </script>
     <CardLarge>
