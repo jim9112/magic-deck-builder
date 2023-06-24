@@ -4,9 +4,24 @@
     let login:Boolean = true;
 </script>
 <h1>Login</h1>
-{#if login} 
-<Login />
-{:else}
-<Register />
-{/if}
-<button on:click={()=>login = !login} type="button">Login</button>
+<div>
+  {#if login} 
+  <Login />
+  {:else}
+  <Register />
+  {/if}
+</div>
+<div class="flex gap-1">
+  {#if login}
+  <p>Dont have an account yet?</p>
+  {:else}
+  <p>Already have an account?</p>
+  {/if}
+  <button on:click={()=>login = !login} type="button">
+    {#if login}
+  Register Now!
+  {:else}
+  Log In!
+  {/if}
+  </button>
+</div>
