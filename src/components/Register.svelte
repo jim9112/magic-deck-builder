@@ -1,29 +1,36 @@
-<script>
+<script lang="ts">
   import CardLarge from "./global/CardLarge.svelte";
+    let email: string;
+    let userName: string;
+    let password: string;
+    let confirmPassword: string;
 
+    const register = () => {
+        console.log('registered')
+    }
 </script>
 <CardLarge>
-    <form action="">
+    <form action="" on:submit|preventDefault={register}>
         <div class="flex gap-4">
             <div class="flex flex-col">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input bind:value={email} type="email" name="email" id="email">
             </div>
             <div class="flex flex-col">
                 <label for="userName">User Name</label>
-                <input type="text" name="userName" id="userName">
+                <input bind:value={userName} type="text" name="userName" id="userName">
             </div>
         </div>
         <div class="flex gap-4">
             <div class="flex">
                 <div class="flex flex-col">
-                    <label for="email">Email Address</label>
-                    <input type="email" name="email" id="email">
+                    <label for="password">Password</label>
+                    <input bind:value={password} type="password" name="password" id="password">
                 </div>
             </div>
             <div class="flex flex-col">
-                <label for="confirmEmail">Confirm Email Address</label>
-                <input type="email" name="confirmEmail" id="confirmEmail">
+                <label for="confirmPassword">Confirm Password</label>
+                <input bind:value={confirmPassword} type="password" name="confirmPassword" id="confirmPassword">
             </div>
         </div>
         <input type="submit" value="Sign Up">
