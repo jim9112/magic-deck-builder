@@ -11,7 +11,7 @@
   <Register />
   {/if}
 </div>
-<div class="flex gap-1">
+<div class="flex justify-center gap-1 mt-5">
   {#if login}
   <p>Dont have an account yet?</p>
   {:else}
