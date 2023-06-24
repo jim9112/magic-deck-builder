@@ -1,3 +1,4 @@
+// Import keys needed from .env
 import {
   PUBLIC_API_KEY,
   PUBLIC_AUTH_DOMAIN,
@@ -6,12 +7,13 @@ import {
   PUBLIC_MESSAGING_SENDER_ID,
   PUBLIC_APP_ID,
 } from '$env/static/public';
+
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps } from 'firebase/app';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from 'firebase/auth';
 
-// Your web app's Firebase configuration
+
+// Firebase configuration
 const firebaseConfig = {
   apiKey: PUBLIC_API_KEY,
   authDomain: PUBLIC_AUTH_DOMAIN,
@@ -24,5 +26,5 @@ let firebaseApp;
 if (!getApps().length) {
   firebaseApp = initializeApp(firebaseConfig);
 }
-console.log('test')
-export { firebaseApp }
+const firebaseAuth = getAuth(firebaseApp);
+export { firebaseApp, firebaseAuth }
