@@ -23,20 +23,20 @@
 <div class="flex justify-center gap-3">
   <form action="" on:submit|preventDefault={()=>loadCards(cardName)}>
     <label for="cardName">Card Name</label>
-    <input class="text-onyx h-9" type="text" name="cardName" bind:value={cardName} />
-    <input type="submit" value="Search">
+    <input class="px-2 rounded-sm text-onyx h-9 bg-vanilla placeholder:text-onyx placeholder:italic" type="text" placeholder="Avacyn" name="cardName" bind:value={cardName} />
+    <input class="h-full px-6 font-bold rounded-sm bg-persian-orange text-onyx" type="submit" value="Search">
   </form>
 </div>
 <div class="container mx-auto">
  
   {#if cards && cards.length > 0}
     <div
-      class="flex flex-col gap-3 p-8 mx-auto border-4 rounded-md max-w-max bg-vanilla text-hookers-green border-flame"
+      class="flex flex-col gap-3 p-8 mx-auto mt-8 border-4 rounded-md max-w-max bg-vanilla text-hookers-green border-flame"
     >
     <div class="flex gap-4">
       <img class="h-[370px]" src={cards[cardIndex].imageUrl} alt="" />
-      <div>
-        <h3 class="text-2xl font-bold">{cards[cardIndex].name}</h3>
+      <div class="w-[415px]">
+        <h3 class="text-2xl font-bold text-onyx">{cards[cardIndex].name}</h3>
         <p class="max-w-sm italic">{cards[cardIndex].flavor}</p>
       </div>
     </div>
