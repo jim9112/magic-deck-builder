@@ -21,8 +21,11 @@
 
 <h1>Card Finder</h1>
 <div class="flex justify-center gap-3">
-  <input class="text-onyx h-9" type="text" bind:value={cardName} />
-  <button on:click={() => loadCards(cardName)}>Search</button>
+  <form action="" on:submit|preventDefault={()=>loadCards(cardName)}>
+    <label for="cardName">Card Name</label>
+    <input class="text-onyx h-9" type="text" name="cardName" bind:value={cardName} />
+    <input type="submit" value="Search">
+  </form>
 </div>
 <div class="container mx-auto">
   <button on:click={() => (cardIndex = cardIndex + 1)}>Next</button>
