@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { goto } from '$app/navigation';
+  import { goto } from '$app/navigation';
   import { authUser } from '$lib/authStore';
   import CardLarge from './global/CardLarge.svelte';
   import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -17,7 +17,7 @@
           $authUser = {
             uid: userCredential.user.uid,
           };
-          goto('/my-cards')
+          goto('/my-cards');
         })
         .catch((error) => {
           const errorCode = error.code;

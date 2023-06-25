@@ -12,7 +12,6 @@ import {
 import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
-
 // Firebase configuration
 const firebaseConfig = {
   apiKey: PUBLIC_API_KEY,
@@ -27,4 +26,4 @@ if (!getApps().length) {
   firebaseApp = initializeApp(firebaseConfig);
 }
 const firebaseAuth = getAuth(firebaseApp);
-export { firebaseApp, firebaseAuth }
+export { firebaseApp, firebaseAuth };

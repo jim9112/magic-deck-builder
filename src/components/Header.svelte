@@ -8,8 +8,8 @@
     signOut(firebaseAuth).then(() => {
       $authUser = undefined;
       goto('/login');
-    }) 
-  }
+    });
+  };
 </script>
 
 <header class="bg-onyx text-persian-orange">
@@ -50,9 +50,8 @@
         href="/card-finder"
         class="text-sm font-semibold leading-6 text-gray-900">Card Finder</a
       >
-      <a
-        href="/my-cards"
-        class="text-sm font-semibold leading-6 text-gray-900">My Cards</a
+      <a href="/my-cards" class="text-sm font-semibold leading-6 text-gray-900"
+        >My Cards</a
       >
       <a href="/about" class="text-sm font-semibold leading-6 text-gray-900"
         >About</a

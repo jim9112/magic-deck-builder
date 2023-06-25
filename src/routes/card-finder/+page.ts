@@ -1,6 +1,6 @@
+/** @type {import('./$types').PageLoad} */
+
 import { firebaseApp } from '$lib/firebase';
-
-
 
 export async function load({ fetch, params }) {
   const getCards = async (cardName = 'avacyn') => {
