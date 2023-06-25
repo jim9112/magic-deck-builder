@@ -1,6 +1,15 @@
 <script>
   import { authUser } from '$lib/authStore';
+  import { goto } from '$app/navigation';
+  import { signOut } from 'firebase/auth';
+  import { firebaseAuth } from '$lib/firebase';
   let mobileMenuOpen = false;
+  const logOut = () => {
+    signOut(firebaseAuth).then(() => {
+      $authUser = undefined;
+      goto('/login');
+    }) 
+  }
 </script>
 
 <header class="bg-onyx text-persian-orange">
@@ -41,6 +50,10 @@
         href="/card-finder"
         class="text-sm font-semibold leading-6 text-gray-900">Card Finder</a
       >
+      <a
+        href="/my-cards"
+        class="text-sm font-semibold leading-6 text-gray-900">My Cards</a
+      >
       <a href="/about" class="text-sm font-semibold leading-6 text-gray-900"
         >About</a
       >
@@ -56,6 +69,7 @@
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <button
           type="button"
+          on:click={logOut}
           class="text-sm font-semibold leading-6 text-gray-900"
           >Log Out <span aria-hidden="true">&rarr;</span></button
         >
@@ -106,6 +120,11 @@
               href="/card-finder"
               class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
               >Card Finder</a
+            >
+            <a
+              href="/my-cards"
+              class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50"
+              >My Cards</a
             >
             <a
               href="/about"

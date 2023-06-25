@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { goto } from '$app/navigation';
     import {authUser} from '$lib/authStore';
     import {signInWithEmailAndPassword} from'firebase/auth';
     import {firebaseAuth} from '$lib/firebase';
@@ -10,6 +11,7 @@
             $authUser = {
                 uid: userCredential.user.uid,
             }
+            goto('/my-cards');
         }).catch((error)=> {
             const errorCode = error.code;
             const errorMessage = error.message;
