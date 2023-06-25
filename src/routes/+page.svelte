@@ -21,3 +21,6 @@
 {#if card}
 <SingleCard card={card} />
 {/if}
+<div class="flex">
+    <button on:click={() => loadCards()} type="button">Random Card</button>
+</div>
