@@ -28,15 +28,29 @@
   </form>
 </div>
 <div class="container mx-auto">
-  <button on:click={() => (cardIndex = cardIndex + 1)}>Next</button>
+ 
   {#if cards && cards.length > 0}
     <div
-      class="flex gap-3 p-8 mx-auto border-4 rounded-md max-w-max bg-vanilla text-hookers-green border-flame"
+      class="flex flex-col gap-3 p-8 mx-auto border-4 rounded-md max-w-max bg-vanilla text-hookers-green border-flame"
     >
-      <img src={cards[cardIndex].imageUrl} alt="" />
+    <div class="flex gap-4">
+      <img class="h-[370px]" src={cards[cardIndex].imageUrl} alt="" />
       <div>
         <h3 class="text-2xl font-bold">{cards[cardIndex].name}</h3>
         <p class="max-w-sm italic">{cards[cardIndex].flavor}</p>
+      </div>
+    </div>
+      <div class="flex justify-between font-bold text-onyx">
+        <div>
+          {#if cardIndex > 0}
+           <button on:click={() => (cardIndex = cardIndex - 1)}>Previous</button>
+          {/if}
+        </div>
+        <div>
+          {#if cardIndex < cards.length - 1}
+           <button on:click={() => (cardIndex = cardIndex + 1)}>Next</button>
+          {/if}
+        </div>
       </div>
     </div>
   {:else}
