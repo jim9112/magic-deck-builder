@@ -13,7 +13,7 @@
   let cards: Cards['cards'] = [];
   const loadCards = async (userInput = 'avacyn'): Promise<void> => {
     const theCards = await getCards(userInput);
-    cards = theCards.cards;
+    cards = theCards.cards.filter((card: { imageUrl: any; flavor: any; }) => card.imageUrl && card.flavor);
     console.log(cards);
   };
   loadCards();
