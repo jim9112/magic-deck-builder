@@ -4,7 +4,7 @@
 export async function load({ fetch, params }) {
   const getCards = async (cardName = 'avacyn') => {
     const res = await fetch(
-      `https://api.magicthegathering.io/v1/cards?name=${cardName}`
+      `https://api.scryfall.com/cards/search?q=${cardName}`
     );
     const item = await res.json();
     return item;
