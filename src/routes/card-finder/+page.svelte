@@ -18,6 +18,7 @@
       (card: CardDetails) => card?.image_uris?.normal && card.flavor_text
     );
     console.log(cards);
+    cardIndex = 0;
   };
   loadCards();
 </script>
