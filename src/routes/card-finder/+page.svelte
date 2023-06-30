@@ -14,13 +14,25 @@ import SingleCard from "../../components/global/SingleCard.svelte";
   let cardName: string;
   let cardIndex: number = 0;
   let cards: CardDetails[] = [];
+  let loading: boolean = false;
+  let errorMessage: string | null = null;
   const loadCards = async (userInput = 'avacyn'): Promise<void> => {
+    errorMessage = null;
+    loading = true;
     const theCards = await getCards(userInput);
-    cards = theCards.data.filter(
-      (card: CardDetails) => card?.image_uris?.normal && card.flavor_text
-    );
-    console.log(cards);
+    if (theCards.data) {
+      cards = theCards.data.filter(
+        (card: CardDetails) => card?.image_uris?.normal
+      );
+    }
+    if (theCards.status === 404) {
+      cards = [];
+      errorMessage = theCards.details;
+      console.log(theCards.details);
+    }
+    console.log(theCards)
     cardIndex = 0;
+    loading = false;
   };
   loadCards();
 </script>
@@ -46,7 +58,7 @@ import SingleCard from "../../components/global/SingleCard.svelte";
   </form>
 </div>
 <div class="container mx-auto">
-  {#if cards && cards.length > 0}
+  {#if cards && cards.length > 0 && !loading}
   <SingleCard card={cards[cardIndex]}>
      <div class="flex justify-between font-bold text-onyx">
         <div>
@@ -63,7 +75,11 @@ import SingleCard from "../../components/global/SingleCard.svelte";
         </div>
       </div>
   </SingleCard>
-  {:else}
+  {/if}
+  {#if loading === true}
     <span>Loading....</span>
+  {/if}
+  {#if errorMessage}
+    <span>{errorMessage}</span>
   {/if}
 </div>
